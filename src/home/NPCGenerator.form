@@ -9,7 +9,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -68,7 +68,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="GenerateNPC1" min="-2" pref="318" max="-2" attributes="0"/>
+                          <Component id="GenerateNPC" min="-2" pref="318" max="-2" attributes="0"/>
                           <EmptySpace pref="104" max="32767" attributes="0"/>
                           <Component id="ResetSelection" min="-2" pref="318" max="-2" attributes="0"/>
                       </Group>
@@ -93,9 +93,9 @@
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="ClassSelect" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="AbilityScoreSelect1" min="-2" pref="180" max="-2" attributes="0"/>
+                                      <Component id="AbilityScoreSelect" min="-2" pref="180" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="AbilityScoreSelect" pref="169" max="32767" attributes="0"/>
+                                      <Component id="ModifierSelect" pref="169" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="NumberOfNPCs" max="32767" attributes="0"/>
                               </Group>
@@ -117,7 +117,7 @@
                   </Group>
                   <EmptySpace pref="60" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="GenerateNPC1" min="-2" max="-2" attributes="0"/>
+                      <Component id="GenerateNPC" min="-2" max="-2" attributes="0"/>
                       <Component id="ResetSelection" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
@@ -132,7 +132,7 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="NumberOfNPCs" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="LevelSelect" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -145,8 +145,8 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="TitleAbilityScore" min="-2" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="AbilityScoreSelect1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="AbilityScoreSelect" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ModifierSelect" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -171,7 +171,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ResetSelectionActionPerformed"/>
           </Events>
         </Component>
-        <Component class="java.awt.Button" name="GenerateNPC1">
+        <Component class="java.awt.Button" name="GenerateNPC">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -181,6 +181,9 @@
             </Property>
             <Property name="label" type="java.lang.String" value="Generate NPC"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGenerateNPCActionPerformed"/>
+          </Events>
         </Component>
         <Component class="java.awt.Label" name="TitleNumberOfNPC">
           <Properties>
@@ -212,7 +215,7 @@
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Default Cursor"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Select Level Range"/>
+            <Property name="text" type="java.lang.String" value="Select Level"/>
           </Properties>
           <AccessibilityProperties>
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Select Level"/>
@@ -259,7 +262,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="AbilityScoreSelect">
+        <Component class="javax.swing.JComboBox" name="ModifierSelect">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -322,7 +325,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="AbilityScoreSelect1">
+        <Component class="javax.swing.JComboBox" name="AbilityScoreSelect">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
