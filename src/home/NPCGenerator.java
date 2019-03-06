@@ -30,18 +30,18 @@ public class NPCGenerator extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         ResetSelection = new java.awt.Button();
         GenerateNPC1 = new java.awt.Button();
-        ChoiceLevelRangeLow = new java.awt.Choice();
-        numberOfNPCs = new java.awt.TextField();
-        ChoiceClass = new java.awt.Choice();
-        ChoiceAbilityScore = new java.awt.Choice();
         TitleNumberOfNPC = new java.awt.Label();
         TitleSelectClass = new java.awt.Label();
         TitleRangeLevel = new java.awt.Label();
         TitleAbilityScore = new java.awt.Label();
-        ChoiceLevelRangeHigh = new java.awt.Choice();
         TitleMenu = new java.awt.Label();
         Title = new java.awt.Label();
         TitleNumberWarningLabel = new java.awt.Label();
+        AbilityScoreSelect = new javax.swing.JComboBox<>();
+        ClassSelect = new javax.swing.JComboBox<>();
+        AbilityScoreSelect1 = new javax.swing.JComboBox<>();
+        NumberOfNPCs = new javax.swing.JSpinner();
+        LevelSelect = new javax.swing.JSpinner();
         button1 = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,31 +63,6 @@ public class NPCGenerator extends javax.swing.JFrame {
         GenerateNPC1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         GenerateNPC1.setLabel("Generate NPC");
 
-        ChoiceLevelRangeLow.setBackground(new java.awt.Color(255, 255, 255));
-        ChoiceLevelRangeLow.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        numberOfNPCs.setBackground(new java.awt.Color(255, 255, 255));
-        numberOfNPCs.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        numberOfNPCs.setName(""); // NOI18N
-        numberOfNPCs.setText("1");
-        numberOfNPCs.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                numberOfNPCsComponentShown(evt);
-            }
-        });
-        numberOfNPCs.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                numberOfNPCsKeyReleased(evt);
-            }
-        });
-
-        ChoiceClass.setBackground(new java.awt.Color(255, 255, 255));
-        ChoiceClass.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        ChoiceClass.setName(""); // NOI18N
-
-        ChoiceAbilityScore.setBackground(new java.awt.Color(255, 255, 255));
-        ChoiceAbilityScore.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
         TitleNumberOfNPC.setBackground(new java.awt.Color(255, 255, 255));
         TitleNumberOfNPC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         TitleNumberOfNPC.setText("Number of NPCs");
@@ -104,9 +79,6 @@ public class NPCGenerator extends javax.swing.JFrame {
         TitleAbilityScore.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         TitleAbilityScore.setText("Select Ability Score");
 
-        ChoiceLevelRangeHigh.setBackground(new java.awt.Color(255, 255, 255));
-        ChoiceLevelRangeHigh.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
         TitleMenu.setBackground(new java.awt.Color(255, 255, 255));
         TitleMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         TitleMenu.setName("Menu"); // NOI18N
@@ -118,6 +90,23 @@ public class NPCGenerator extends javax.swing.JFrame {
 
         TitleNumberWarningLabel.setForeground(new java.awt.Color(255, 51, 51));
 
+        AbilityScoreSelect.setBackground(new java.awt.Color(255, 255, 255));
+        AbilityScoreSelect.setForeground(new java.awt.Color(0, 0, 0));
+        AbilityScoreSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "−5", "−4", "−3", "−2", "−1", "+0", "+1", "+2", "+3", "+4", "+5", "+6", "+7", "+8", "+9", "+10" }));
+
+        ClassSelect.setBackground(new java.awt.Color(255, 255, 255));
+        ClassSelect.setEditable(true);
+        ClassSelect.setForeground(new java.awt.Color(0, 0, 0));
+        ClassSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard" }));
+
+        AbilityScoreSelect1.setBackground(new java.awt.Color(255, 255, 255));
+        AbilityScoreSelect1.setForeground(new java.awt.Color(0, 0, 0));
+        AbilityScoreSelect1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2–3", "4–5", "6–7", "8–9", "10–11", "12–13", "14–15", "16–17", "18–19", "20–21", "22–23", "24–25", "26–27", "28–29", "30" }));
+
+        NumberOfNPCs.setModel(new javax.swing.SpinnerNumberModel(1, 1, 20, 1));
+
+        LevelSelect.setModel(new javax.swing.SpinnerNumberModel(1, 1, 20, 1));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -127,7 +116,7 @@ public class NPCGenerator extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(GenerateNPC1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                         .addComponent(ResetSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -142,15 +131,17 @@ public class NPCGenerator extends javax.swing.JFrame {
                             .addComponent(TitleNumberOfNPC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(TitleNumberWarningLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ChoiceClass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ChoiceAbilityScore, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(ChoiceLevelRangeLow, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ChoiceLevelRangeHigh, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(numberOfNPCs, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(LevelSelect, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(ClassSelect, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(AbilityScoreSelect1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(AbilityScoreSelect, 0, 169, Short.MAX_VALUE))
+                                .addComponent(NumberOfNPCs)))
+                        .addGap(23, 23, 23)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -166,26 +157,31 @@ public class NPCGenerator extends javax.swing.JFrame {
                     .addComponent(ResetSelection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(56, 56, 56)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TitleNumberWarningLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(numberOfNPCs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TitleNumberOfNPC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(TitleNumberOfNPC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(14, 14, 14)
+                                .addComponent(TitleRangeLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(NumberOfNPCs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(LevelSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(ChoiceLevelRangeLow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TitleRangeLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ChoiceLevelRangeHigh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TitleSelectClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ClassSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ChoiceClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TitleSelectClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ChoiceAbilityScore, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TitleAbilityScore, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(TitleNumberWarningLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22))
+                            .addComponent(TitleAbilityScore, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(AbilityScoreSelect1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(AbilityScoreSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(18, 18, 18))
         );
+
+        TitleRangeLevel.getAccessibleContext().setAccessibleName("Select Level");
 
         button1.setBackground(new java.awt.Color(255, 255, 255));
         button1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -205,7 +201,7 @@ public class NPCGenerator extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,32 +221,12 @@ public class NPCGenerator extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonExitActionPerformed
 
     private void ResetSelectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetSelectionActionPerformed
-        ChoiceAbilityScore.removeAll();
-        ChoiceClass.removeAll();
-        ChoiceLevelRangeHigh.removeAll();
-        ChoiceLevelRangeLow.removeAll();
-        numberOfNPCs.setText("");
+        AbilityScoreSelect.removeAll();
+        ClassSelect.removeAll();
+        LevelSelect.removeAll();
+        NumberOfNPCs.removeAll();
         
     }//GEN-LAST:event_ResetSelectionActionPerformed
-
-    private void numberOfNPCsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numberOfNPCsKeyReleased
-        TitleNumberWarningLabel.setVisible(false);
-        try {
-            if (numberOfNPCs.getText().length() <= 0) {
-                TitleNumberWarningLabel.setVisible(true);
-                TitleNumberWarningLabel.setText("Please enter a number");
-            }            
-            Integer numberSelecction = Integer.parseInt(numberOfNPCs.getText());                    
-            
-        } catch (NumberFormatException nfe) {
-            TitleNumberWarningLabel.setVisible(true);
-            TitleNumberWarningLabel.setText("Please enter a valid number!");
-        }
-    }//GEN-LAST:event_numberOfNPCsKeyReleased
-
-    private void numberOfNPCsComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_numberOfNPCsComponentShown
-        TitleNumberWarningLabel.setVisible(false);
-    }//GEN-LAST:event_numberOfNPCsComponentShown
 
     /**
      * @param args the command line arguments
@@ -288,11 +264,12 @@ public class NPCGenerator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Choice ChoiceAbilityScore;
-    private java.awt.Choice ChoiceClass;
-    private java.awt.Choice ChoiceLevelRangeHigh;
-    private java.awt.Choice ChoiceLevelRangeLow;
+    private javax.swing.JComboBox<String> AbilityScoreSelect;
+    private javax.swing.JComboBox<String> AbilityScoreSelect1;
+    private javax.swing.JComboBox<String> ClassSelect;
     private java.awt.Button GenerateNPC1;
+    private javax.swing.JSpinner LevelSelect;
+    private javax.swing.JSpinner NumberOfNPCs;
     private java.awt.Button ResetSelection;
     private java.awt.Label Title;
     private java.awt.Label TitleAbilityScore;
@@ -303,6 +280,5 @@ public class NPCGenerator extends javax.swing.JFrame {
     private java.awt.Label TitleSelectClass;
     private java.awt.Button button1;
     private javax.swing.JPanel jPanel1;
-    private java.awt.TextField numberOfNPCs;
     // End of variables declaration//GEN-END:variables
 }
