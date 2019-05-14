@@ -1,4 +1,4 @@
-# Project Management Service
+# Non Player Character Generator
 
 A Python Flask SQLAlchemy application
 
