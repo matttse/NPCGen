@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container mx-auto my-auto py-3 px-1">
+  {% if stories != 0 %}
+      {% for story in stories %}
+        <article {% if story.status == 'new' %} class="media content-section-new"
+                 {% elif story.status == 'in-progress' %} class="media content-section-inprogress"
+                 {% elif story.status == 'done' %} class="media content-section-done"
+                 {% else %} class="media content-section" 
+                 {% endif %} >
+          <div class="media-body">
+            <div class="article-metadata" >
+              <small class="text-muted">{{ story.date_posted.strftime('%Y-%m-%d') }}</small>
+            </div>
+            <h2>
+              <a class="article-title" href="{{ url_for('stories.update_story', project_id=project_id, requirement_id=requirement_id, story_id=story.id) }}">{{ story.title }}</a>
+            </h2>
+            <div class="row justify-content-between">
+              <div class="col">
+                <p class="article-content">{{ story.content }}</p>
+              </div>
+              <div class="col">Status:
+                <p class="article-content">{{ story.status }}</p>
+              </div>
+              <div class="col">Assigned to:
+                <p class="article-content">{{ story.assigned_to }}</p>
+              </div>
+              <div class="col">
+                  <div class="float-right">
+                      <div class="container mx-auto my-auto py-1 px-1">
+                        <a class="btn btn-secondary" href="{{url_for('stories.update_story', project_id=project_id, requirement_id=requirement_id,story_id=story.id)}}">Story</a>
+                      </div>             
+                      <div class="container mx-auto my-auto py-1 px-1">
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal_{{ story.id }}">Delete</button>
+                      </div>
+                    </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </article>
+        <!-- Modal -->
+        <div class="modal fade" id="deleteModal_{{ story.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete Story</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <form id="delete_{{ story.id }}" action="{{ url_for('stories.delete_story', project_id=project_id, requirement_id=requirement_id, story_id=story.id) }}" method="POST">
+                  <input class="btn btn-danger" type="submit" value="Delete">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>  
+      {% endfor %}
+    {% else %}
+      <div class="alert alert-secondary">No Stories Found</div>
+    {% endif %}
+    <a id="add-story-btn" class="btn btn-primary" href="{{ url_for('stories.new_story', project_id=project_id, requirement_id=requirement_id) }}"><strong>Add Story</strong></a>
+  </div>
+    <!-- Stories container -->
+  {% endblock content %}
